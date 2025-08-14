@@ -21,25 +21,28 @@ It's perfect for watching your videos on other devices within the same network (
 - **psutil Python library**: Required for detecting the private IP address.
 - A **video player** like VLC to open the stream URL.
 
-**Note**: This script is primarily tested on MacOS but is designed to be cross-platform. On Windows, some features may behave differently due to OS limitations.
+**Note**: This script is primarily tested on macOS but is designed to be cross-platform. On Windows, some features may behave differently due to OS limitations.
 
 ### FFmpeg Installation
 
 **FFmpeg must be installed and available in your system PATH.**
 
 #### Linux (Ubuntu/Debian)
+
 ```bash
 sudo apt update
 sudo apt install ffmpeg
 ```
 
 #### macOS
+
 ```bash
 # Using Homebrew
 brew install ffmpeg
 ```
 
 #### Windows
+
 1. Download FFmpeg from [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html)
 2. Extract the archive to a folder (e.g., `C:\ffmpeg`)
 3. Add the `bin` folder to your system PATH:
@@ -55,7 +58,7 @@ Install the required Python package:
 pip install psutil
 ```
 
-or on Linux/macOS:
+Or on Linux/macOS:
 
 ```bash
 python3 -m pip install psutil
@@ -67,8 +70,8 @@ python3 -m pip install psutil
 
 1. Download the script:
 ```bash
-git clone https://github.com/vincenzoarico/ffmpeg-http-streamer.git
-cd ffmpeg-http-streamer
+git clone https://github.com/vincenzoarico/FFmpeg-HTTP-Streamer.git
+cd FFmpeg-HTTP-Streamer
 ```
 
 2. Make it executable and rename:
@@ -77,7 +80,7 @@ chmod +x FFmpegHTTPServer.py
 mv FFmpegHTTPServer.py FFmpegHTTPServer
 ```
 
-3. Move to a directory in your PATH:
+3. Move to a directory in your PATH (check with `echo $PATH` on Linux/macOS):
 ```bash
 sudo mv FFmpegHTTPServer /usr/local/bin/
 # or
@@ -88,3 +91,5 @@ mv FFmpegHTTPServer ~/.local/bin/  # Make sure ~/.local/bin is in your PATH
 
 1. Download `FFmpegHTTPServer.py` to your desired location
 2. Use Python to run the script (see usage examples below)
+
+**Windows Note**: You cannot run the script directly as a command, unlike on Linux/macOS. Instead, always invoke it with python FFmpegHTTPServer.py (or python3 FFmpegHTTPServer.py if you have multiple Python versions).

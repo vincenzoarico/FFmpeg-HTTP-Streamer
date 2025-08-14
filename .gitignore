@@ -173,7 +173,7 @@ cython_debug/
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+.idea/
 
 # Abstra
 # Abstra is an AI-powered process automation framework.
@@ -186,7 +186,7 @@ cython_debug/
 #  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
 #  and can be added to the global gitignore or merged into this file. However, if you prefer, 
 #  you could uncomment the following to ignore the entire vscode folder
-# .vscode/
+.vscode/
 
 # Ruff stuff:
 .ruff_cache/
@@ -205,3 +205,119 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# === OPERATING SYSTEM FILES ===
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# Linux
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+# === PROJECT SPECIFIC ===
+
+# FFmpeg streaming files
+*.ts
+*.m3u8
+*.m3u
+
+# Temporary video files
+temp_video.*
+temp_audio.*
+
+# Log files
+ffmpeg.log
+server.log
+
+# Test videos (if you add test files)
+test_videos/
+sample_videos/
+
+# === ADDITIONAL IDE AND EDITORS ===
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# === MISC ===
+
+# Backup files
+*.bak
+*.backup
+*.old

@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-orange)
 
-A simple Python script that sets up an HTTP server for streaming local or remote videos using FFmpeg. It transcodes videos to HLS (HTTP Live Streaming) format (if necessary) and serves them over a local network (LAN) via Python's built-in HTTP server module.
+A simple lightweight Python script that sets up an HTTP server for streaming local or remote videos using FFmpeg. It transcodes videos to HLS (HTTP Live Streaming) format (if necessary) and serves them over a local network (LAN) via Python's built-in HTTP server module.
 
 It's perfect for watching your videos on other devices within the same network (like a Smart TV, tablet, or another computer) using any player that supports HLS streams (e.g., VLC, IINA, mpv). It supports both local video files and remote URLs, with automatic codec checking and transcoding for compatibility.
 

@@ -196,7 +196,7 @@ Open this URL in a player like VLC: http://<yourPrivateIP>:<port>/stream.m3u8
 
 The **--transcode** flag in the command activates the transcoding.
 
-Running it with the --transcode flag, if your video isn't in H.264/AAC format, the script will append a new video/audio track and transcode it in H.264/AAC format for optimal streaming compatibility. It never deletes already existing video/audio tracks.
+Running it with the --transcode flag, if your video doesn't have a H.264/AAC track among its tracks, the script will append a new video/audio track and transcode it in H.264/AAC format for optimal streaming compatibility. It never deletes already existing video/audio tracks.
 
 ## Supported Video Formats
 

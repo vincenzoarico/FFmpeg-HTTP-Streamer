@@ -4,15 +4,15 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-orange)
 
-A simple lightweight Python script that sets up an HTTP server for streaming local or remote videos using FFmpeg. It transcodes videos to HLS (HTTP Live Streaming) format (if necessary) and serves them over a local network (LAN) via Python's built-in HTTP server module.
+A simple, lightweight Python script that sets up an HTTP server for streaming local or remote videos using FFmpeg. It transcodes videos to HLS (HTTP Live Streaming) format (if necessary) and serves them over a local network (LAN) via Python's built-in HTTP server module.
 
-It's perfect for watching your videos on other devices within the same network (like a Smart TV, tablet, or another computer) using any player that supports HLS streams (e.g., VLC, IINA, mpv). It supports both local video files and remote URLs, with automatic codec checking and transcoding for compatibility.
+It's perfect for watching your videos on other devices within the same network (like a Smart TV, tablet, or another computer) using any player (e.g., VLC, IINA, mpv). It supports both local video files and remote URLs, with automatic codec checking and transcoding for compatibility.
 
 ## Features
 
-- 🎥 Streams local videos or remote URLs via HLS (HTTP Live Streaming on a specified port in the dynamic range 49152-65535)
+- 🎥 Streams local videos or remote URLs via HTTP on a specified port in the dynamic range 49152-65535)
 - 🌐 Cross-platform support (Linux, macOS, Windows)
-- 📱 Compatible with any HLS-capable player (VLC, IINA, mpv, QuickTime, M3U IPTV app for TV)
+- 📱 Compatible with any player (VLC, IINA, mpv, QuickTime, M3U IPTV app for TV)
 - 🔄 Automatic video/audio transcoding when needed (H.264/AAC)
 - 🧹 Automatic cleanup of streaming files on exit
 - 🔍 Automatic network interface detection (private IP)
@@ -22,7 +22,7 @@ It's perfect for watching your videos on other devices within the same network (
 
 - **Python 3.7+**: Ensure Python is installed and in your PATH.
 - **FFmpeg and FFprobe**: Must be installed and available in your PATH. This script relies on them for transcoding and probing.
-- **psutil Python library**: Required for detecting the private IP address.
+- **Poetry**: A Python dependency and package manager.
 - A **video player** like VLC to open the stream URL.
 
 **Note**: This script is primarily tested on macOS but is designed to be cross-platform. On Windows, some features may behave differently due to OS limitations.
@@ -54,68 +54,101 @@ brew install ffmpeg
    - Edit the `Path` variable and add `C:\ffmpeg\bin`
    - Restart your command prompt
 
-### Python Dependencies
+### Poetry
 
-Install the required Python package:
-
-```bash
-pip install psutil
-```
-
-Or on Linux/macOS:
+#### Linux (Ubuntu/Debian)
 
 ```bash
-python3 -m pip install psutil
+sudo apt update
+sudo apt install pipx
+pipx ensurepath
 ```
 
-## Installation
+Then, if you have a Zsh shell: 
+```bash
+source ~/.zshrc
+```
 
-### Linux/macOS (Command-line usage)
+Or, if you have a bash shell:
+```bash
+source ~/.bashrc
+```
 
-1. Download the script:
+Finally:
+```bash
+pipx install poetry
+```
+
+#### macOS
+
+```bash
+brew update
+brew install pipx
+pipx ensurepath
+```
+
+Then, if you have a Zsh shell: 
+```bash
+source ~/.zshrc
+```
+
+Or, if you have a bash shell:
+```bash
+source ~/.bashrc
+```
+
+Finally:
+```bash
+pipx install poetry
+```
+
+#### Windows
+
+[Follow the official guide to install pipx](https://pipx.pypa.io/stable/installation/#on-windows)
+
+Finally:
+```bash
+pipx install poetry
+```
+
+## Installation using Poetry
+
 ```bash
 git clone https://github.com/vincenzoarico/FFmpeg-HTTP-Streamer.git
 cd FFmpeg-HTTP-Streamer
+poetry install
 ```
-
-2. Make it executable and rename:
-```bash
-chmod +x FFmpegHTTPServer.py
-mv FFmpegHTTPServer.py FFmpegHTTPServer
-```
-
-3. Move to a directory in your PATH (check with `echo $PATH` on Linux/macOS):
-```bash
-sudo mv FFmpegHTTPServer /usr/local/bin/
-# or
-mv FFmpegHTTPServer ~/.local/bin/  # Make sure ~/.local/bin is in your PATH
-```
-
-### Windows
-
-1. Download `FFmpegHTTPServer.py` to your desired location
-2. Use Python to run the script (see usage examples below)
-
-**Windows Note**: You cannot run the script directly as a command, unlike on Linux/macOS. Instead, always invoke it with python FFmpegHTTPServer.py (or python3 FFmpegHTTPServer.py if you have multiple Python versions).
 
 ## Usage
+
+Navigate to the **folder of the repository**:
+
+```bash
+cd FFmpeg-HTTP-Streamer
+```
+
+Activate the virtual environment created by Poetry:
+```bash
+# macOS
+source $(poetry env info --path)/bin/activate
+
+# Windows
+& $(poetry env info --path)\Scripts\activate.ps1
+```
+
+Now, you can use the `ffmpeg-http-server` command in any path of your terminal.
 
 ### Command Syntax
 
 ```bash
-# Linux/macOS (if installed in PATH)
-FFmpegHTTPServer -p <port> -d <streaming_directory> -l <local_video_path>
-FFmpegHTTPServer -p <port> -d <streaming_directory> -r <remote_video_url>
-
-# Windows or direct Python execution
-python FFmpegHTTPServer.py -p <port> -d <streaming_directory> -l <local_video_path>
-python FFmpegHTTPServer.py -p <port> -d <streaming_directory> -r <remote_video_url>
+ffmpeg-http-server -p <port> [-d <streaming_directory>] [--transcode] -l <local_video_path> | -r <remote_video_url>
 ```
 
 ### Parameters
 
 - `-p, --port`(required): Server port (must be between 49152-65535, e.g., 50000). The script checks if it's free.
-- `-d, --dir`(optional): **Absolute path** to the streaming directory (where HLS files are generated). Defaults to the current directory. It will be created if it doesn't exist.
+- `-d, --dir`(optional): **Path** to the streaming directory (where streaming files are generated). Defaults to the current directory. It will be created if it doesn't exist.
+- `-t, --transcode` (optional): Flag to activate the transcoding (if needed).
 - `-l, --local_path`(mutually exclusive with -r): **Absolute path** to a local video file (e.g., /path/to/video.mp4). Supports common extensions like .mp4, .mkv, etc.
 - `-r, --remote_url`(mutually exclusive with -l): Remote video URL (e.g., https://example.com/video.mp4). Must be HTTP/HTTPS.
 
@@ -123,48 +156,28 @@ python FFmpegHTTPServer.py -p <port> -d <streaming_directory> -r <remote_video_u
 
 ### Examples
 
-#### Stream a local video file
+#### Stream a local video file using transcoding
 
-**Linux/macOS:**
 ```bash
-FFmpegHTTPServer -p 8080 -d /home/user/streaming -l /home/user/videos/movie.mp4
+ffmpeg-http-server -p 50000 -d /home/user/streaming --transcode -l /home/user/videos/movie.mp4
 ```
 
-**Windows:**
-```cmd
-python FFmpegHTTPServer.py -p 8080 -d C:\Users\YourName\streaming -l C:\Users\YourName\Videos\movie.mp4
-```
+#### Stream a remote video URL without using transcoding
 
-#### Stream a remote video URL
-
-**Linux/macOS:**
 ```bash
-FFmpegHTTPServer -p 8080 -d /home/user/streaming -r https://example.com/video.mp4
-```
-
-**Windows:**
-```cmd
-python FFmpegHTTPServer.py -p 8080 -d C:\Users\YourName\streaming -r https://example.com/video.mp4
+ffmpeg-http-server -p 50000 -d /home/user/streaming -r https://example.com/video.mp4
 ```
 
 #### Using the current directory for streaming
 
 ```bash
-# Linux/macOS
-FFmpegHTTPServer -p 8080 -l /path/to/video.mp4
-
-# Windows
-python FFmpegHTTPServer.py -p 8080 -r https://example.com/video.mp4
+ffmpeg-http-server -p 50000 -l /path/to/video.mp4
 ```
 
 ### Getting Help
 
 ```bash
-# Linux/macOS
-FFmpegHTTPServer --help
-
-# Windows
-python FFmpegHTTPServer.py --help
+ffmpeg-http-server --help
 ```
 
 ## How to Access the Stream
@@ -175,17 +188,21 @@ Once the server starts, you'll see output like:
 Open this URL in a player like VLC: http://<yourPrivateIP>:<port>/stream.m3u8
 ```
 
-1. Open a media player that supports HLS streams (like VLC, IINA, mpv).
+1. Open a media player (like VLC, IINA, mpv).
 2. Find the "Open Network Stream" option (or similar).
 3. Paste the URL provided by the script.
+
+## How Automatic Transcoding works
+
+The **--transcode** flag in the command activates the transcoding.
+
+Running it with the --transcode flag, if your video isn't in H.264/AAC format, the script will append a new video/audio track and transcode it in H.264/AAC format for optimal streaming compatibility. It never deletes already existing video/audio tracks.
 
 ## Supported Video Formats
 
 The script supports common video formats, including:
 - MP4, MKV, AVI, MOV, FLV, WMV
 - WebM, MPEG, MPG, 3GP, M4V, DivX
-
-**Automatic Transcoding**: If your video isn't in H.264/AAC format, the script will automatically transcode it for optimal streaming compatibility.
 
 ## Troubleshooting
 
@@ -203,11 +220,6 @@ The script supports common video formats, including:
    - Ensure the streaming directory is writable
    - On Linux/macOS, check file permissions
 
-4. **Video not playing**
-   - Wait a few seconds for the stream to initialize
-   - Check that your player supports HLS streams
-   - Verify the video file is not corrupted
-
 ### Windows-Specific Notes
 
 - Use forward slashes or double backslashes in paths: `C:/Videos/movie.mp4` or `C:\\Videos\\movie.mp4`
@@ -215,9 +227,6 @@ The script supports common video formats, including:
 
 ## Technical Details
 
-- **Streaming Protocol**: HLS (HTTP Live Streaming)
-- **Video Codec**: H.264 (transcoded if necessary)
-- **Audio Codec**: AAC (transcoded if necessary)
 - **Segment Duration**: 10 seconds
 - **Playlist Size**: 24 segments (4 minutes of content)
 - **Network Detection**: Automatically finds your private IP address

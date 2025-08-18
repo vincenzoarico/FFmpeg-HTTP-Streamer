@@ -1,0 +1,105 @@
+[project]
+name = "ffmpeg-http-streamer"
+version = "1.0.0rc2"
+description = "A lightweight Python script for streaming local or remote videos over HTTP using FFmpeg's HLS protocol. Supports automatic transcoding, cross-platform setup, and easy playback in tools like VLC."
+authors = [
+    {name = "Vincenzo Aricò",email = "enzoarico99@outlook.it"}
+]
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "psutil (>=7.0.0,<8.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "ffmpeg_http_streamer", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.12.9"
+
+[tool.poetry.scripts]
+ffmpeg-http-streamer = "ffmpeg_http_streamer.main:main"
+
+[tool.ruff]
+lint.extend-select = [
+    "E",    # Pycodestyle errors (style issues)
+    "W",    # Pycodestyle warnings (style issues)
+    "C90",  # McCabe – complexity metric for functions
+    "I",    # isort – import ordering checks
+    "N",    # PEP8 Naming – naming conventions
+    "D",    # Pydocstyle – docstring formatting
+    "UP",   # Pyupgrade – upgrades syntax to newer Python versions
+    "YTT",  # Flake8-2020 – checks for Python 2020 best practices
+    # "ANN",  # Flake8-annotations – enforces type annotation style
+    "ASYNC",# Flake8-async – checks async/await usage
+    "S",    # Flake8-bandit – security issues
+    "BLE",  # Flake8-blind-except – flags bare excepts
+    "FBT",  # Flake8-boolean-trap – potential pitfalls with booleans
+    "B",    # Flake8-bugbear – common bug patterns
+    "A",    # Flake8-builtins – misuse of Python built-in names
+    "COM",  # Flake8-commas – trailing/comma issues
+    # "CPY",  # Flake8-copyright – copyright header checks
+    "C4",   # Flake8-comprehensions – best practices in comprehensions
+    "DTZ",  # Flake8-datetimez – requires timezone-aware datetime objects
+    "T10",  # Flake8-debugger – debugger statements (e.g. pdb)
+    "DJ",   # Flake8-django – Django-specific conventions
+    "EM",   # Flake8-errmsg – error message style
+    "EXE",  # Flake8-executable – executable file checks
+    "FA",   # Flake8-future-annotations – future import for annotations
+    "ISC",  # Flake8-implicit-str-concat – warns on implicit string concatenation
+    "ICN",  # Flake8-import-conventions – enforces conventional import aliases
+    "LOG",  # Flake8-logging – proper logging usage
+    "G",    # Flake8-logging-format – logging format string issues
+    "INP",  # Flake8-no-pep420 – warns against non-PEP420 namespace usage
+    "PIE",  # Flake8-pie – Python improvement suggestions
+    # "T20",  # Flake8-print – disallows print statements
+    "PYI",  # Flake8-pyi – checks for type stub (.pyi) consistency
+    "PT",   # Flake8-pytest-style – pytest best practices
+    "Q",    # Flake8-quotes – enforces quote style consistency
+    "RSE",  # Flake8-raise – proper raise statement usage
+    "RET",  # Flake8-return – return statement issues
+    "SLF",  # Flake8-self – flags instance methods that don't use self
+    "SLOT", # Flake8-slots – suggests use of __slots__ where appropriate
+    "SIM",  # Flake8-simplify – code simplification hints
+    "TID",  # Flake8-tidy-imports – enforces specific import styles (e.g., no relative imports)
+    "TC",   # Flake8-type-checking – proper import of typing in type checks
+    "INT",  # Flake8-gettext – checks for proper internationalization usage
+    "ARG",  # Flake8-unused-arguments – flags unused function arguments
+    "PTH",  # Flake8-use-pathlib – encourages pathlib over os.path
+    "TD",   # Flake8-todos – flags TODO comments
+    "FIX",  # Flake8-fixme – flags FIXME comments
+    # "ERA",  # Eradicate – detects commented-out code (potentially dangerous)
+    "PD",   # Pandas-vet – checks pandas-specific code practices
+    "PGH",  # Pygrep-hooks – custom grep hooks for linting
+    "PL",   # Pylint – integration with Pylint conventions
+    "TRY",  # Tryceratops – try/except usage suggestions
+    "FLY",  # Flynt – f-string conversion suggestions
+    "NPY",  # NumPy-specific rules – ensures NumPy coding standards
+    "FAST", # FastAPI – FastAPI-specific linting rules
+    "AIR",  # Airflow – Airflow-specific linting rules
+    "PERF", # Perflint – performance-related checks
+    "FURB", # Refurb – rules for code refurbishment
+    # "DOC",  # Pydoclint – docstring linting and consistency
+    "RUF",  # Ruff-specific rules – additional Ruff checks
+]
+
+lint.ignore = [
+    "EXE001", # Pycodestyle - ignore shebang
+    "E501",  # Pycodestyle - line too long
+    "D1",    # Pydocstyle - missing docstring in public module, class, or function
+    "FBT003", # Flake8-boolean-trap - boolean position value in function call
+    "D203",  # Pydocstyle - one blank line required before class docstring
+    "D212",  # Pydocstyle - summary line should be immediately after the opening quotes.
+    "D401",  # Pydocstyle - Checks for docstring first lines that are not in an imperative mood.
+    "S311",  # Flake8-bandit - Standard pseudo-random generators are not suitable for security/cryptographic purposes
+    "PERF401", # Perflint - Checks for for loops that can be replaced by a list comprehension.
+    "RET504", # Flake8-return - Checks for variable assignments that immediately precede a return of the assigned variable.
+    "FA102", # Flake8-future-annotations - Missing `from __future__ import annotations`, but uses PEP 604 union
+    "TRY003", # Tryceratops - Checks for long exception messages that are not defined in the exception class itself.
+    "EM101", # Flake8-errmsg - Checks for the use of string literals in exception constructors.
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,6 +1,6 @@
 # FFmpeg-HTTP-Streamer
 
-![Python](https://img.shields.io/badge/python-3.6%2B-blue)
+![Python](https://img.shields.io/badge/python-3.7%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-orange)
 
@@ -20,7 +20,7 @@ It's perfect for watching your videos on other devices within the same network (
 
 ## Prerequisites
 
-- **Python 3.6+**: Ensure Python is installed and in your PATH.
+- **Python 3.7+**: Ensure Python is installed and in your PATH.
 - **FFmpeg and FFprobe**: Must be installed and available in your PATH. This script relies on them for transcoding and probing.
 - **psutil Python library**: Required for detecting the private IP address.
 - A **video player** like VLC to open the stream URL.

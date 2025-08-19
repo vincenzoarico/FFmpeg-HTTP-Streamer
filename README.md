@@ -138,6 +138,8 @@ source $(poetry env info --path)/bin/activate
 
 Now, you can use the `ffmpeg-http-server` command in any path of your terminal.
 
+**Note**: The command to deactivate the virtual environment created by Poetry is `deactivate`.
+
 ### Command Syntax
 
 ```bash

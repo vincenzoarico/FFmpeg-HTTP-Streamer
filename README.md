@@ -1,5 +1,6 @@
 # FFmpeg-HTTP-Streamer
 
+![FFmpeg 7](https://shields.io/badge/FFmpeg-%23171717.svg?logo=ffmpeg&style=for-the-badge&labelColor=171717&logoColor=5cb85c)
 ![Python](https://img.shields.io/badge/python-3.7%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-orange)
@@ -21,33 +22,31 @@ It's perfect for watching your videos on other devices within the same network (
 ## Prerequisites
 
 - **Python 3.7+**: Ensure Python is installed and in your PATH.
-- **FFmpeg and FFprobe**: Must be installed and available in your PATH. This script relies on them for transcoding and probing.
+- **FFmpeg 7 and FFprobe 7**: Must be installed and available in your PATH. This script relies on them for transcoding and probing.
 - **Poetry**: A Python dependency and package manager.
 - A **video player** like VLC to open the stream URL.
 
 **Note**: This script is primarily tested on macOS but is designed to be cross-platform. On Windows, some features may behave differently due to OS limitations.
 
-### FFmpeg Installation
+### FFmpeg 7 Installation
 
-**FFmpeg must be installed and available in your system PATH.**
+**FFmpeg 7 must be installed and available in your system PATH.**
 
 #### Linux (Ubuntu/Debian)
 
-```bash
-sudo apt update
-sudo apt install ffmpeg
-```
+Use your package manager to install FFmpeg 7.
 
 #### macOS
 
 ```bash
 # Using Homebrew
-brew install ffmpeg
+brew install ffmpeg@7
+brew link --force --overwrite ffmpeg@7
 ```
 
 #### Windows
 
-1. Download FFmpeg from [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html)
+1. Download FFmpeg 7.1.1 "Péter" from [https://ffmpeg.org/download.html#releases](https://ffmpeg.org/download.html#releases)
 2. Extract the archive to a folder (e.g., `C:\ffmpeg`)
 3. Add the `bin` folder to your system PATH:
    - Open System Properties → Advanced → Environment Variables

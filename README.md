@@ -135,14 +135,14 @@ source $(poetry env info --path)/bin/activate
 & $(poetry env info --path)\Scripts\activate.ps1
 ```
 
-Now, you can use the `ffmpeg-http-server` command in any path of your terminal.
+Now, you can use the `ffmpeg-http-streamer` command in any path of your terminal.
 
 **Note**: The command to deactivate the virtual environment created by Poetry is `deactivate`.
 
 ### Command Syntax
 
 ```bash
-ffmpeg-http-server -p <port> [-d <streaming_directory>] [--transcode] -l <local_video_path> | -r <remote_video_url>
+ffmpeg-http-streamer -p <port> [-d <streaming_directory>] [--transcode] -l <local_video_path> | -r <remote_video_url>
 ```
 
 ### Parameters
@@ -160,25 +160,25 @@ ffmpeg-http-server -p <port> [-d <streaming_directory>] [--transcode] -l <local_
 #### Stream a local video file using transcoding
 
 ```bash
-ffmpeg-http-server -p 50000 -d /home/user/streaming --transcode -l /home/user/videos/movie.mp4
+ffmpeg-http-streamer -p 50000 -d /home/user/streaming --transcode -l /home/user/videos/movie.mp4
 ```
 
 #### Stream a remote video URL without using transcoding
 
 ```bash
-ffmpeg-http-server -p 50000 -d /home/user/streaming -r https://example.com/video.mp4
+ffmpeg-http-streamer -p 50000 -d /home/user/streaming -r https://example.com/video.mp4
 ```
 
 #### Using the current directory for streaming
 
 ```bash
-ffmpeg-http-server -p 50000 -l /path/to/video.mp4
+ffmpeg-http-streamer -p 50000 -l /path/to/video.mp4
 ```
 
 ### Getting Help
 
 ```bash
-ffmpeg-http-server --help
+ffmpeg-http-streamer --help
 ```
 
 ## How to Access the Stream

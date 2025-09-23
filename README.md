@@ -128,7 +128,7 @@ cd FFmpeg-HTTP-Streamer
 
 Activate the virtual environment created by Poetry:
 ```bash
-# macOS
+# macOS / Linux
 source $(poetry env info --path)/bin/activate
 
 # Windows

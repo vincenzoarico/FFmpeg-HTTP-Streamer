@@ -40,17 +40,20 @@ Use your package manager to install FFmpeg 7.
 
 ```bash
 # Using Homebrew
-brew install ffmpeg@7
+brew tap-new mytaps/ffmpeg7
+cd $(brew --repo mytaps/ffmpeg7)/Formula
+curl https://raw.githubusercontent.com/Homebrew/homebrew-core/8c96d970d58cf9e4d9c7b062355a6f2a8d4288e9/Formula/f/ffmpeg%407.rb > ffmpeg@7.rb
+brew install mytaps/ffmpeg7/ffmpeg@7
 brew link --force --overwrite ffmpeg@7
 ```
 
 #### Windows
 
-1. Download FFmpeg 7.1.1 "Péter" from [https://ffmpeg.org/download.html#releases](https://ffmpeg.org/download.html#releases)
-2. Extract the archive to a folder (e.g., `C:\ffmpeg`)
+1. Download FFmpeg 7.1.1 "Péter" from [https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2025-09-14-13-31/ffmpeg-n7.1.1-152-gf893221c8d-win64-lgpl-7.1.zip]
+2. Extract the archive to a folder (e.g., `C:\FFmpeg`)
 3. Add the `bin` folder to your system PATH:
    - Open System Properties → Advanced → Environment Variables
-   - Edit the `Path` variable and add `C:\ffmpeg\bin`
+   - Edit the `Path` variable and add `C:\FFmpeg\bin`
    - Restart your command prompt
 
 ### Poetry

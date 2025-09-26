@@ -49,7 +49,7 @@ brew link --force --overwrite ffmpeg@7
 
 #### Windows
 
-1. Download FFmpeg 7.1.1 "Péter" from [https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2025-09-14-13-31/ffmpeg-n7.1.1-152-gf893221c8d-win64-lgpl-7.1.zip]
+1. Download FFmpeg 7.1.1 "Péter" from this [link](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2025-09-14-13-31/ffmpeg-n7.1.1-152-gf893221c8d-win64-lgpl-7.1.zip)
 2. Extract the archive to a folder (e.g., `C:\FFmpeg`)
 3. Add the `bin` folder to your system PATH:
    - Open System Properties → Advanced → Environment Variables

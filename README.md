@@ -1,6 +1,6 @@
 # FFmpeg-HTTP-Streamer
 
-![FFmpeg 7](https://shields.io/badge/FFmpeg-%23171717.svg?logo=ffmpeg&style=for-the-badge&labelColor=171717&logoColor=5cb85c)
+![FFmpeg 7.1.1](https://shields.io/badge/FFmpeg-%23171717.svg?logo=ffmpeg&style=for-the-badge&labelColor=171717&logoColor=5cb85c)
 ![Python](https://img.shields.io/badge/python-3.7%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-orange)
@@ -22,19 +22,19 @@ It's perfect for watching your videos on other devices within the same network (
 ## Prerequisites
 
 - **Python 3.7+**: Ensure Python is installed and in your PATH.
-- **FFmpeg 7 and FFprobe 7**: Must be installed and available in your PATH. This script relies on them for transcoding and probing.
+- **FFmpeg 7.1.1 and FFprobe 7.1.1**: Must be installed and available in your PATH. This script relies on them for transcoding and probing.
 - **Poetry**: A Python dependency and package manager.
 - A **video player** like VLC to open the stream URL.
 
 **Note**: This script is primarily tested on macOS but is designed to be cross-platform. On Windows, some features may behave differently due to OS limitations.
 
-### FFmpeg 7 Installation
+### FFmpeg 7.1.1 Installation
 
-**FFmpeg 7 must be installed and available in your system PATH.**
+**FFmpeg 7.1.1 must be installed and available in your system PATH.**
 
 #### Linux (Ubuntu/Debian)
 
-Use your package manager to install FFmpeg 7.
+Use your package manager to install FFmpeg 7.1.1.
 
 #### macOS
 

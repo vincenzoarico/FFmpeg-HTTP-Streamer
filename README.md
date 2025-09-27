@@ -34,7 +34,7 @@ It's perfect for watching your videos on other devices within the same network (
 
 #### Linux (Ubuntu/Debian)
 
-Use your package manager to install FFmpeg 7.1.1.
+Install FFmpeg 7.1.1.
 
 #### macOS
 

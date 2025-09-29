@@ -127,7 +127,8 @@ poetry install
 Install all prerequisites using the following Docker command:
 
 ```bash
-docker run --name FFmpeg-HTTP-Streamer vincenzoarico/ffmpeg-http-streamer:1.0
+docker run -it --name FFmpeg-HTTP-Streamer vincenzoarico/ffmpeg-http-streamer:1.0
+exit
 ```
 
 ## Usage
@@ -136,7 +137,7 @@ If you have installed it using Docker:
 
 ```bash
 docker start FFmpeg-HTTP-Streamer
-docker exec -ti w /root FFmpeg-HTTP-Streamer bash
+docker exec -ti -w /root FFmpeg-HTTP-Streamer bash
 ```
 
 Navigate to the **folder of the repository**:

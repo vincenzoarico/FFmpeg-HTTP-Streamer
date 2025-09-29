@@ -19,7 +19,7 @@ It's perfect for watching your videos on other devices within the same network (
 - 🔍 Automatic network interface detection (private IP)
 - ⚡ Real-time streaming with FFmpeg
 
-## Prerequisites
+## Installation without using Docker
 
 - **Python 3.7+**: Ensure Python is installed and in your PATH.
 - **FFmpeg 7.1.1 and FFprobe 7.1.1**: Must be installed and available in your PATH. This script relies on them for transcoding and probing.
@@ -34,7 +34,7 @@ It's perfect for watching your videos on other devices within the same network (
 
 #### Linux (Ubuntu/Debian)
 
-Install FFmpeg 7.1.1.
+Install all prerequisites using Docker. Go to the [section](#installation-using-docker)
 
 #### macOS
 
@@ -113,7 +113,7 @@ Finally:
 pipx install poetry
 ```
 
-## Installation using Poetry
+### FFmpeg-HTTP-Streamer installation using Poetry
 
 ```bash
 git clone https://github.com/vincenzoarico/FFmpeg-HTTP-Streamer.git
@@ -121,7 +121,22 @@ cd FFmpeg-HTTP-Streamer
 poetry install
 ```
 
+## Installation using Docker
+
+Install all prerequisites using the following Docker command:
+
+```bash
+docker run --name FFmpeg-HTTP-Streamer vincenzoarico/ffmpeg-http-streamer:1.0
+```
+
 ## Usage
+
+If you have installed it using Docker:
+
+```bash
+docker start FFmpeg-HTTP-Streamer
+docker exec -ti w /root FFmpeg-HTTP-Streamer bash
+```
 
 Navigate to the **folder of the repository**:
 
@@ -169,7 +184,7 @@ ffmpeg-http-streamer -p 50000 -d /home/user/streaming --transcode -l /home/user/
 #### Stream a remote video URL without using transcoding
 
 ```bash
-ffmpeg-http-streamer -p 50000 -d /home/user/streaming -r https://example.com/video.mp4
+ffmpeg-http-streamer -p 50000 -d /home/user/streaming -r 'https://example.com/video.mp4'
 ```
 
 #### Using the current directory for streaming

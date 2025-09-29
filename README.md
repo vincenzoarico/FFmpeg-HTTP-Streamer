@@ -21,6 +21,7 @@ It's perfect for watching your videos on other devices within the same network (
 
 ## Installation without using Docker
 
+Prerequisites:
 - **Python 3.7+**: Ensure Python is installed and in your PATH.
 - **FFmpeg 7.1.1 and FFprobe 7.1.1**: Must be installed and available in your PATH. This script relies on them for transcoding and probing.
 - **Poetry**: A Python dependency and package manager.
@@ -34,7 +35,7 @@ It's perfect for watching your videos on other devices within the same network (
 
 #### Linux (Ubuntu/Debian)
 
-Install all prerequisites using Docker. Go to the [section](#installation-using-docker)
+Install all prerequisites using Docker. Go to the [section](#installation-using-docker).
 
 #### macOS
 

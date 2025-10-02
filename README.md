@@ -19,7 +19,7 @@ It's perfect for watching your videos on other devices within the same network (
 - 🔍 Automatic network interface detection (private IP)
 - ⚡ Real-time streaming with FFmpeg
 
-## Installation without using Docker
+## Installation without using Docker (macOS - Windows)
 
 Prerequisites:
 - **Python 3.7+**: Ensure Python is installed and in your PATH.
@@ -32,10 +32,6 @@ Prerequisites:
 ### FFmpeg 7.1.1 Installation
 
 **FFmpeg 7.1.1 must be installed and available in your system PATH.**
-
-#### Linux (Ubuntu/Debian)
-
-Install all prerequisites using Docker. Go to the [section](#installation-using-docker).
 
 #### macOS
 
@@ -58,29 +54,6 @@ brew link --force --overwrite ffmpeg@7
    - Restart your command prompt
 
 ### Poetry
-
-#### Linux (Ubuntu/Debian)
-
-```bash
-sudo apt update
-sudo apt install pipx
-pipx ensurepath
-```
-
-Then, if you have a Zsh shell: 
-```bash
-source ~/.zshrc
-```
-
-Or, if you have a bash shell:
-```bash
-source ~/.bashrc
-```
-
-Finally:
-```bash
-pipx install poetry
-```
 
 #### macOS
 
@@ -116,24 +89,26 @@ pipx install poetry
 
 ### FFmpeg-HTTP-Streamer installation using Poetry
 
+#### macOS - Windows
+
 ```bash
 git clone https://github.com/vincenzoarico/FFmpeg-HTTP-Streamer.git
 cd FFmpeg-HTTP-Streamer
 poetry install
 ```
 
-## Installation using Docker
+## Installation using Docker (Linux)
 
 Install all prerequisites using the following Docker command:
 
 ```bash
-docker run -it --name FFmpeg-HTTP-Streamer -p 50000:50000 vincenzoarico/ffmpeg-http-streamer:1.0
+docker run -it --name FFmpeg-HTTP-Streamer --network host vincenzoarico/ffmpeg-http-streamer:1.0
 exit
 ```
 
 ## Usage
 
-If you have installed it using Docker:
+If you have installed it using Docker (only for Linux host):
 
 ```bash
 docker start FFmpeg-HTTP-Streamer

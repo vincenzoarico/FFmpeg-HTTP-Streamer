@@ -112,7 +112,7 @@ If you have installed it using Docker (only for Linux host):
 
 ```bash
 docker start FFmpeg-HTTP-Streamer
-docker exec -ti -w /root FFmpeg-HTTP-Streamer bash
+docker exec -ti -w /root FFmpeg-HTTP-Streamer sh -c "source /root/.ashrc && exec sh"
 ```
 
 Navigate to the **folder of the repository**:

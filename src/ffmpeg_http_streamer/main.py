@@ -66,7 +66,10 @@ def check_args(args):
 
     port = args.port
     if not constants.PORT_RANGE_START <= port <= constants.PORT_RANGE_END:
-        print(f"Error: the port must be between {constants.PORT_RANGE_START}-{constants.PORT_RANGE_END}.", file=sys.stderr)
+        print(
+            f"Error: the port must be between {constants.PORT_RANGE_START}-{constants.PORT_RANGE_END}.",
+            file=sys.stderr,
+        )
         sys.exit(1)
     if not network.is_port_free(private_ip, port):
         print(
@@ -139,7 +142,7 @@ def main():
 
         print("\n✅ FFmpeg HTTP Server successfully started!")
         print(
-            f"Open this URL in a player like VLC: http://{private_ip}:{port}/stream.m3u8",
+            f"Open this URL in a player like VLC: http://{private_ip}:{port}/stream.m3u8\nIf the previous URL doesn't work (for example, using the M3U IPTV app), try it: http://{private_ip}:{port}/stream.m3u",
         )
         print(
             "Press Ctrl+C to stop the streaming and clean the stream files in the streaming directory.\n",

@@ -18,7 +18,7 @@ packages = [{include = "ffmpeg_http_streamer", from = "src"}]
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.12.9"
 
-[tool.poetry.scripts]
+[project.scripts]
 ffmpeg-http-streamer = "ffmpeg_http_streamer.main:main"
 
 [tool.ruff]
@@ -98,6 +98,7 @@ lint.ignore = [
     "FA102", # Flake8-future-annotations - Missing `from __future__ import annotations`, but uses PEP 604 union
     "TRY003", # Tryceratops - Checks for long exception messages that are not defined in the exception class itself.
     "EM101", # Flake8-errmsg - Checks for the use of string literals in exception constructors.
+    "COM812", # Flake8-commas - missing trailing comma
 ]
 
 [build-system]

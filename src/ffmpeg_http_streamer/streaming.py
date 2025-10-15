@@ -291,7 +291,15 @@ def run_ffmpeg_process(private_ip, port, streaming_directory, transcode, address
         codecs = transcode_input(address)
 
     base_url = f"http://{private_ip}:{port}/"
-    output = Path(streaming_directory) / "stream.m3u8"
+    output_m3u8 = Path(streaming_directory) / "stream.m3u8"
+
+    output_m3u = Path(streaming_directory) / "stream.m3u"
+    m3u8_url = f"{base_url}stream.m3u8"
+    with output_m3u.open("w") as f:
+        f.write("#EXTM3U\n")
+        f.write("#EXTINF:-1,Stream Video\n")
+        f.write(f"{m3u8_url}\n")
+
     command = [
         "ffmpeg",
         "-re",
@@ -314,7 +322,7 @@ def run_ffmpeg_process(private_ip, port, streaming_directory, transcode, address
         "mpegts",
         "-loglevel",
         "info",
-        output,
+        output_m3u8,
     ]
 
     try:

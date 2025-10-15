@@ -182,6 +182,7 @@ Once the server starts, you'll see output like:
 ```
 ✅ FFmpeg HTTP Server successfully started!
 Open this URL in a player like VLC: http://<yourPrivateIP>:<port>/stream.m3u8
+If the previous URL doesn't work (for example, using the M3U IPTV app), try it: http://<yourPrivateIP>:<port>/stream.m3u
 ```
 
 1. Open a media player (like VLC, IINA, mpv).
